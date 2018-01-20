@@ -21,7 +21,7 @@ const base_path = './',
 gulp.task('connect', function(){
   connect.server({
     root: dist,
-    livereload: false
+    livereload: true
   });
 });
 
@@ -92,8 +92,9 @@ gulp.task('fontawesome-sass', function(){
 // Copy scripts that doesn't need any compilation
 gulp.task('no-compile-scripts', function(){
   return gulp.src([
-    'node_modules/jquery/dist/jquery.min.js', //Only for local development
-    'node_modules/lazysizes/lazysizes.min.js'
+    //'node_modules/jquery/dist/jquery.min.js', //Only for local development
+    'node_modules/lazysizes/lazysizes.min.js',
+    src + '/javascript/ls.unveilhooks.min.js'
   ])
     .pipe(gulp.dest( dist + '/assets/js/' ));
 });
@@ -130,11 +131,16 @@ return gulp.src([
    './node_modules/basscss-btn/css/btn.css',
    './node_modules/basscss-btn-primary/css/btn-primary.css',
    './node_modules/basscss-background-images/css/background-images.css',
+   './node_modules/basscss-responsive-position/css/responsive-position.css',
+   './node_modules/basscss-forms/index.css',
    dist + '/assets/css/font-awesome.min.css',
    dist + '/assets/css/fonts.min.css',
    dist + '/assets/css/styles.min.css'
   ])
   .pipe(concat('app.min.css'))
+  .pipe(minifyCSS({
+    level: {1: {specialComments: 0}}
+  }))
   .pipe(gulp.dest( dist + '/assets/css/' ));
 });
 
@@ -144,6 +150,7 @@ gulp.task('concat-scripts', [
   'compile-scripts' ], function(){
 return gulp.src([
     dist + '/assets/js/lazysizes.min.js',
+    dist + '/assets/js/ls.unveilhooks.min.js',
     dist + '/assets/js/scripts.min.js'
   ])
   .pipe(concat('app.min.js'))
@@ -156,11 +163,20 @@ return gulp.src([
 gulp.task('watch-concat-styles', ['styles-sass'], function(){
   return gulp.src([
     './node_modules/basscss/css/basscss.css',
+    './node_modules/basscss/css/basscss.css',
+    './node_modules/basscss-btn/css/btn.css',
+    './node_modules/basscss-btn-primary/css/btn-primary.css',
+    './node_modules/basscss-background-images/css/background-images.css',
+    './node_modules/basscss-responsive-position/css/responsive-position.css',
+    './node_modules/basscss-forms/index.css',
     dist + '/assets/css/font-awesome.min.css',
     dist + '/assets/css/fonts.min.css',
     dist + '/assets/css/styles.min.css'
    ])
    .pipe(concat('app.min.css'))
+   .pipe(minifyCSS({
+     level: {1: {specialComments: 0}}
+   }))
    .pipe(gulp.dest( dist + '/assets/css/' ))
    .pipe(connect.reload());
 });
@@ -170,6 +186,7 @@ gulp.task('watch-concat-styles', ['styles-sass'], function(){
 gulp.task('watch-concat-scripts', ['compile-scripts'], function(){
   return gulp.src([
     dist + '/assets/js/lazysizes.min.js',
+    dist + '/assets/js/ls.unveilhooks.min.js',
     dist + '/assets/js/scripts.min.js'
   ])
   .pipe(concat('app.min.js'))
