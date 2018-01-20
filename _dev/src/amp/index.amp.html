@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ⚡ lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Shanghai Art Museum | UI/UX Prototype</title>
   <meta name="description" content="The Shanghai Art Museum website prototype it's one of many experiences to try new UX/UI.">
@@ -28,8 +30,6 @@
 
   <link rel="canonical" href="https://mesopa.com/china-art-museum/">
 
-  <link rel="amphtml" href="https://mesopa.com/china-art-museum/index.amp.html">
-
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:creator" content="@PedroSerapio" />
 
@@ -42,7 +42,13 @@
   <meta content="1200" property="og:image:width">
   <meta content="627" property="og:image:height">
 
-  <link rel="stylesheet" href="assets/css/app.min.css">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
+  <!-- build:cssInline -->
+  <!-- endbuild -->
+
 </head>
 <body>
   <header>
@@ -50,7 +56,7 @@
       <div class="max-width-4 mx-auto px2">
         <div class="bg-cover bg-center bg-no-repeat mt3 header-inner dark-frame">
           <div class="flex items-center justify-center pt4 pb4">
-            <img src="assets/images/common/china-shanghai-art-museum-logo.png" alt="Shanghai Art Museum Logo" class="fit">
+            <amp-img src="assets/images/common/china-shanghai-art-museum-logo.png" alt="Shanghai Art Museum Logo" width="480" height="225" class="fit" ></amp-img>
           </div>
         </div>
       </div>
@@ -60,8 +66,7 @@
     <div class="max-width-4 mx-auto px2">
       <div class="clearfix mxn2">
         <div class="col col-12 sm-col-6 px2 mt3">
-          <section class="relative bg-cover bg-no-repeat lazyload mini-event-inner dark-frame event-one"
-            data-bg="assets/images/china-art-museum/photo-event-sample-image.jpg">
+          <section class="relative bg-cover bg-no-repeat mini-event-inner dark-frame event-one">
             <div class="absolute top-0 right-0 event-area-name area-photography">
               <div class="p1">
                 <h2 class="text-uppercase">Photography</h2>
@@ -75,8 +80,7 @@
           </section>
         </div>
         <div class="col col-12 sm-col-6 px2 mt3">
-          <section class="relative bg-cover bg-no-repeat lazyload mini-event-inner dark-frame event-two"
-            data-bg="assets/images/china-art-museum/dance-event-sample-image.jpg">
+          <section class="relative bg-cover bg-no-repeat mini-event-inner dark-frame event-two">
             <div class="absolute top-0 right-0 event-area-name area-dance">
               <div class="p1">
                 <h2 class="text-uppercase">Dance</h2>
@@ -95,8 +99,7 @@
       <div class="max-width-4 mx-auto px2 mt3">
         <div class="clearfix mxn2">
           <div class="col col-12 px2">
-            <div class="bg-contain bg-no-repeat lazyload py3 main-event-outer"
-              data-bg="assets/images/china-art-museum/happy-baby-event-sample-image.svg">
+            <div class="bg-contain bg-no-repeat py3 main-event-outer">
               <section class="relative main-event-inner pt4">
                 <div class="absolute top-0 right-0 event-area-name area-family">
                   <div class="p1">
@@ -118,8 +121,7 @@
       <div class="max-width-4 mx-auto px2">
         <div class="clearfix mxn2">
           <div class="col col-12 sm-col-6 px2">
-            <section class="relative mt3 bg-cover bg-no-repeat lazyload dark-frame location-info"
-              data-bg="assets/images/common/shanghai-art-museum-location-map.png">
+            <section class="relative mt3 bg-cover bg-no-repeat dark-frame location-info">
               <div class="absolute address-box">
                 <p>Xueye Road Shangnan<br>Road Station</p>
               </div>
@@ -129,7 +131,7 @@
             <section class="border-box p2 mt3 newsletter-form">
               <h2 class="text-uppercase">Newsletter</h2>
               <p>Sign up our newsletter and get the latest information and availability about the latest events.</p>
-              <form action="">
+              <form action="/" target="_blank">
                 <input type="text" class="block border-box col-12 mb1 input" placeholder="NAME">
                 <input type="email" class="block border-box col-12 mb1 input" placeholder="EMAIL">
                 <button type="button" class="btn btn-primary btn-colored text-uppercase">Sign Up</button>
@@ -149,7 +151,5 @@
     </div>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer="defer"></script>
-  <script src="assets/js/app.min.js" defer="defer"></script>
 </body>
 </html>

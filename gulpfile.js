@@ -21,7 +21,7 @@ const base_path = './',
 gulp.task('connect', function(){
   connect.server({
     root: dist,
-    livereload: true
+    livereload: false
   });
 });
 
@@ -65,30 +65,6 @@ gulp.task('google-fonts-css-fix', ['google-fonts'], function(){
     .pipe(gulp.dest(dist + '/assets/css/'));
 });
 
-// Copy Font Awesome Fonts files
-gulp.task('fontawesome-fonts', function(){
-  return gulp.src( base_path + 'node_modules/font-awesome/fonts/*' )
-    .pipe(gulp.dest(dist + '/assets/fonts/font-awesome/'));
-});
-
-// Compiles Font Awesome Styles
-gulp.task('fontawesome-sass', function(){
-  return gulp.src( src + '/stylesheet/font-awesome.scss' )
-    .pipe(sass({
-      includePaths: [
-        'node_modules/font-awesome/scss'
-      ]
-    }))
-    .pipe(prefixer())
-    .pipe(minifyCSS({
-      level: {1: {specialComments: 0}}
-    }))
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest(dist + '/assets/css/'));
-});
-
 // Copy scripts that doesn't need any compilation
 gulp.task('no-compile-scripts', function(){
   return gulp.src([
@@ -123,17 +99,14 @@ gulp.task('styles-sass', function(){
 gulp.task('concat-styles', [
   'google-fonts',
   'google-fonts-css-fix',
-  'fontawesome-fonts',
-  'fontawesome-sass',
   'styles-sass' ], function(){
-return gulp.src([
+  return gulp.src([
    './node_modules/basscss/css/basscss.css',
    './node_modules/basscss-btn/css/btn.css',
    './node_modules/basscss-btn-primary/css/btn-primary.css',
    './node_modules/basscss-background-images/css/background-images.css',
    './node_modules/basscss-responsive-position/css/responsive-position.css',
    './node_modules/basscss-forms/index.css',
-   dist + '/assets/css/font-awesome.min.css',
    dist + '/assets/css/fonts.min.css',
    dist + '/assets/css/styles.min.css'
   ])
@@ -169,7 +142,6 @@ gulp.task('watch-concat-styles', ['styles-sass'], function(){
     './node_modules/basscss-background-images/css/background-images.css',
     './node_modules/basscss-responsive-position/css/responsive-position.css',
     './node_modules/basscss-forms/index.css',
-    dist + '/assets/css/font-awesome.min.css',
     dist + '/assets/css/fonts.min.css',
     dist + '/assets/css/styles.min.css'
    ])
@@ -214,7 +186,6 @@ gulp.task('watch', function(){
 gulp.task('amp-styles-sass', function(){
   return gulp.src( src + '/amp/stylesheet/amp-styles.scss' )
     .pipe(sass())
-    .pipe(sassUnicode())
     .pipe(minifyCSS())
     .pipe(rename({
       suffix: '.min'

@@ -42,7 +42,6 @@
     "basscss-btn-primary": "^1.1.0",
     "basscss-forms": "^1.0.0",
     "basscss-responsive-position": "^1.0.0",
-    "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
     "lazysizes": "^4.0.1"
   }
