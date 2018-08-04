@@ -1,0 +1,37 @@
+
+/*
+ * Global Styles
+ */
+
+ @import "./styles-parts/_styles";
+
+ /*
+  * AMP Styles
+  */
+
+.event-one {
+  background-image: url('assets/images/china-art-museum/photo-event-sample-image.jpg');
+}
+
+.event-two {
+  background-image: url('assets/images/china-art-museum/dance-event-sample-image.jpg');
+}
+
+.main-event-outer {
+  background-position: top;
+  background-size: 170%;
+  background-image: url('assets/images/china-art-museum/happy-baby-event-sample-image.svg');
+
+  @media (min-width:40em) {
+    background-position: 20%;
+    background-size: contain;
+  }
+}
+
+/*
+ * Info - Location Map
+ */
+
+ .location-info {
+  background-image: url('assets/images/common/shanghai-art-museum-location-map.png');
+}
