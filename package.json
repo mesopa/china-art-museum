@@ -20,17 +20,29 @@
     "url": "https://github.com/mesopa/china-art-museum/issues"
   },
   "homepage": "https://github.com/mesopa/china-art-museum#readme",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "devDependencies": {
-    "del": "^3.0.0",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^5.0.0",
-    "gulp-clean-css": "^3.9.2",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.2.0",
-    "gulp-htmlmin": "^4.0.0",
+    "gulp-htmlmin": "^5.0.1",
     "gulp-inject-string": "^1.1.1",
-    "gulp-inline-source": "^3.2.0",
-    "gulp-rename": "^1.2.2",
+    "gulp-inline-source": "^4.0.0",
+    "gulp-rename": "^2.0.0",
     "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.0.1",
     "gulp-uglify": "^3.0.0"
@@ -43,6 +55,6 @@
     "basscss-forms": "^1.0.0",
     "basscss-responsive-position": "^1.0.0",
     "jquery": "^3.2.1",
-    "lazysizes": "^4.0.1"
+    "lazysizes": "^5.3.2"
   }
 }
